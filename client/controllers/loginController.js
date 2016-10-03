@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp');
 
 Parse.initialize("PartyOn");
-Parse.serverURL="http://localhost:1337/parse";
+Parse.serverURL="parse-server-web-backend.herokuapp.com/parse";
 
 
 myApp.controller('loginController',['$scope','$http','$location','$routeParams','$rootScope',function($scope, $http, $location, $routeParams,$rootScope){
