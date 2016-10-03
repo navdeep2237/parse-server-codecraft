@@ -1,0 +1,17 @@
+<a href="" ng-click="logout()" class="logout">logout</a>
+<div ng-init="authUser()" class="container-fluid main-content">
+ <div ng-init="authUser()">
+  <div class="row">
+    <div ng-init="showPicturesAll()">
+    <div ng-repeat="picture in pictures">
+    <div class="col-xs-6 col-md-3">
+      <a href="#" class="thumbnail">
+        <img id="pics" src="{{picture.get('image').url()}}" />
+      </a>
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+</div>

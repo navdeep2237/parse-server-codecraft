@@ -2,8 +2,11 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 // var S3Adapter = require('parse-server').S3Adapter;
 var path = require('path');
+var mongo= require("mongodb");
+var bodyParser = require('body-parser');
 
-var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
+
+var databaseUri =" mongodb://navdeep-1:12345A@ds035856.mlab.com:35856/heroku_f6761ktz"//process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 if (!databaseUri) {
 	console.log('DATABASE_URI not specified, falling back to localhost.');
@@ -18,8 +21,8 @@ var api = new ParseServer({
 	
 	//**** Security Settings ****//
 	// allowClientClassCreation: process.env.CLIENT_CLASS_CREATION || false, 
-	appId: process.env.APP_ID || 'myAppId',
-	masterKey: process.env.MASTER_KEY || 'myMasterKey', //Add your master key here. Keep it secret!	
+	appId: process.env.APP_ID || 'PartyOn',
+	masterKey: process.env.MASTER_KEY || 'partyOn_16', //Add your master key here. Keep it secret!	
 	
 	//**** Live Query ****//
 	// liveQuery: {
@@ -58,8 +61,12 @@ var api = new ParseServer({
 
 var app = express();
 
+app.use(express.static(path.join(__dirname+'/client')));
+
+app.use(bodyParser.json());
+
 // Serve static assets from the /public folder
-app.use('/public', express.static(path.join(__dirname, '/public')));
+//app.use('/public', express.static(path.join(__dirname, '/public')));
 
 // Serve the Parse API on the /parse URL prefix
 var mountPath = process.env.PARSE_MOUNT || '/parse';

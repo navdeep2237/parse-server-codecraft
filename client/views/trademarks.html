@@ -1,0 +1,22 @@
+<a href="" ng-click="logout()" class="logout">logout</a>
+<div ng-init="authUser()" class =" container-fluid main-content">
+<a href="#/brands">Back To Brands</a>
+
+	<div class="row">
+		<div ng-init="showTrademarks()">
+		<div ng-repeat="picture in trademarks">
+			  <div class="col-xs-6 col-md-3">
+			    <a href="#" class="thumbnail">
+			      <img id="pics" src="{{picture.get('image').url()}}" />
+			    </a>
+			  </div>
+	  </div>
+	</div>
+	</div>
+
+ <div ng-init="addTrademark()">
+	 	<img id="imageEl" src="" alt="" />
+	 	<input type="file" id="inputEl" ng-model="trademark" />
+	 	<button id="buttonEl" ng-click="addTrademark()">Upload</button>
+ 	</div>
+</div>

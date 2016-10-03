@@ -1,0 +1,59 @@
+<div class="panel panel-default"> <!-- Runs whatever function we put into ng-init
+  <div class="panel-heading">
+    <h3 class="panel-title">Login</h3>
+  </div>
+  <div class="panel-body">
+      <div class="row">
+      <form >
+            <div class="col-md-6">
+            
+              <label> Username </label>
+              <input type = "text" class="form-control" ng-model="user2.username" name="username" id="username" placeholder ="username"> <!-- ng-model binds the form data 
+            </div>
+            
+            <div class="col-md-6">
+              <label> password </label>
+              <input type = "password" class="form-control" ng-model="user2.password" name="password" id="password" placeholder ="password">
+            </div>
+            
+
+            </div>
+            <button type="submit" ng-click="logUser()" class="btn btn-default">Login</button>
+
+        </form>
+
+        <button ng-click="logout()" class="btn btn-default">Logout</button>
+      </div>
+  </div>
+</div>  -->
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Login</title>
+  
+  <link rel="stylesheet" href="assets/css/loginStyle.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+ <div id="login">
+ <form>
+  <h2>Sign In</h2>
+      <div class="col-md-6">
+    <input type = "text" class="form-control" ng-model="user2.username" name="username" id="username" placeholder ="username">
+    
+    <input type = "password" class="form-control" ng-model="user2.password" name="password" id="password" placeholder ="password">
+    
+    <button type="submit" ng-click="logUser()" id="login-btn" class="btn btn-default">Login</button>
+      </div>
+ </form>
+ </div>
+</body>
+</html>
