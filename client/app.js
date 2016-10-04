@@ -1,13 +1,13 @@
 var myApp = angular.module('myApp',['ngRoute']); //initialize app, declare dependency
 
 Parse.initialize("PartyOn");
-Parse.serverURL="http://parse-server-web-backend.herokuapp.com/parse";
+Parse.serverURL="http://localhost:1337/parse";
 
 
 myApp.config(function($routeProvider){
 	$routeProvider.when('/',{
 		controller:'loginController',
-		templateUrl:'views/register.html'
+		templateUrl:'views/first.html'
 	})
 	.when('/register',{
 		controller:'loginController',
@@ -58,6 +58,10 @@ myApp.config(function($routeProvider){
 	.when('/thumbs',{
 		controller: "loginController",
 		templateUrl: 'views/thumbgallery.html'
+	})
+	.when('/brandEdit/:id',{
+		controller: "loginController",
+		templateUrl: 'views/editBrands.html'
 	})
 	.otherwise({
 		redirectTo:'/'	//redirect when user hits wrong link

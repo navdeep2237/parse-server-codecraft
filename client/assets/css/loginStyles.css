@@ -1,8 +1,10 @@
 
 body{
-	background-image: url("/assets/images/party.jpg");
+	background-image: url("/assets/images/phone_party.jpeg");
 	background-color: #cccccc;
+	background-size: cover;
 }
+
 #login{
 	position: absolute;;
 	top: 50%;

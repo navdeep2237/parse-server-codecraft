@@ -1,0 +1,36 @@
+<a href="" ng-click="logout()" class="logout">logout</a>
+<div class="panel panel-default main-content" ng-init="authUser()" > <!-- Runs whatever function we put into ng-init-->
+  <a href="#/brands">Back To Brands </a>
+  <div class="panel-heading" >
+    <h3 class="panel-title">Edit a Brand</h3>
+  </div>
+  <div class="panel-body">
+   		<div class="row" id="editForm">
+      <form form-editable ng-submit="updateBrand()" ng-init="brandDetails1()">
+       			
+           
+            <div class="col-md-12">
+            
+              <label> Name </label>
+              <input type = "text" class="form-control" ng-model="brandDetails.name" placeholder ="username"> <!-- ng-model binds the form data -->
+            </div>
+            <div class="col-md-12">
+              <label> Manufacturer </label>
+              <input type = "text" class="form-control" ng-model="brandDetails.manufacturer" placeholder ="Manufacturer">
+            </div>
+            <div class="col-md-12">
+              <label> Image Url </label>
+              <input type = "text" class="form-control" ng-model="brandDetails.imageUrl" placeholder ="Image Url">
+            </div>
+            <div class="col-md-12">
+              <label> Company_url </label>
+              <input type = "text" class="form-control" ng-model="brandDetails.companyUrl" placeholder ="Company Url">
+
+            </div>
+           
+            <button type="submit" class="btn btn-default">Submit</button>
+           
+        </form>
+   		</div>
+  </div>
+</div>

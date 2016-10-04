@@ -35,7 +35,7 @@
                       <div class="col-md-3">
                          <img src="{{brand.attributes.imageUrl}}"> 
                       </div>
-                      <div class="col-md-8">
+                      <div class="col-md-4">
                           <h3> {{brand.attributes.name}}</h3>
                           <ul class="list-group">
                           <li class="list-group-item">Manufacturer:{{brand.attributes.manufacturer}}</li>
@@ -47,7 +47,11 @@
               </div>
             <!-- end of repeated brands -->
             <a class="btn btn-primary" href="#/pictures/{{brand.id}}">View Pictures</a> 
-        <a class="btn btn-primary" href="#/trademarks/{{brand.id}}">View Trademarks</a> 
+        <a class="btn btn-primary" href="#/trademarks/{{brand.id}}">View Trademarks</a>
+        <div class="pull-right">
+        <a href="#/brandEdit/{{brand.id}}"> Edit</a> | <a href="#" ng-click="deleteBrand(brand.id)"> Delete</a> 
+        </div>
+
         </div>
     </div>    
 

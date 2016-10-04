@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp');
 
 Parse.initialize("PartyOn");
-Parse.serverURL="parse-server-web-backend.herokuapp.com/parse";
+Parse.serverURL="http://localhost:1337/parse";
 
 
 myApp.controller('loginController',['$scope','$http','$location','$routeParams','$rootScope',function($scope, $http, $location, $routeParams,$rootScope){
@@ -187,7 +187,7 @@ myApp.controller('loginController',['$scope','$http','$location','$routeParams',
       }
 
 
-      //-------------------------Brand Details(W) -------------------
+      // -------------------------Brand Details(W) with find-------------------
 
       $scope.brandDetails = function(){
       	console.log("got into the brand details module " );
@@ -219,7 +219,100 @@ myApp.controller('loginController',['$scope','$http','$location','$routeParams',
       	});
 
       }
-   
+
+      //---------------------Brand Details  with get for getting to edit(W)---------------
+
+       $scope.brandDetails1 = function(){
+      	console.log("got into the brand details module " );
+      	//$("#editForm").prop('readonly', false);
+      	$("#editForm").removeAttr('readonly');
+
+
+      	var Brand = Parse.Object.extend("Brand");
+
+      	var query = new Parse.Query("Brand");
+      
+      	//var id = brand.id;		//gets the id through the ng-click directive on the page
+      	var id= $routeParams.id;	// try and get the route params from the url
+      	var brand = new Brand();	// creating a new brand object, don't actually need to do it
+      	brand.id = id;
+      	console.log("new object created ID " + brand);
+      	
+      	console.log("does this print the id " +id);
+      	query.equalTo("objectId", brand.id);
+      	query.get(id).then(function(response){
+      		var name=response.get("name");
+      		var name1 = response.attributes.name; 
+      		console.log("the name with get is " + name);
+      		console.log("the name with attributes is "+ name1);
+      		$scope.brandDetails= {
+      			"name":response.get("name"),			// this seems to get tid of the read-only property
+      			"imageUrl":response.get("imageUrl"),	//It gets the value out of the parseobjectsubclass and assigns individually
+      			"companyUrl":response.get("companyUrl"),
+      			"manufacturer":response.get("manufacturer")
+      		};
+      		//console.log("and this is before the attributes" + $scope.brandDetails2);
+      		// response.set("name", "test");
+      		//console.log("test of response",response);
+      		//$scope.brandDetails = JSON.stringify($scope.brandDetails2.attributes);
+      		//$scope.brandDetails=$scope.brandDetails2.attributes;
+      		// $scope.brandDetails.writable=true;
+      		$scope.$apply();
+      		console.log("brand if fetched", $scope.brandDetails);
+      	});
+
+      }
+      //----------------------------Edit brand Details (W)------------
+
+      $scope.updateBrand = function(){
+      	console.log("got into the update module");
+      	var Brand = Parse.Object.extend("Brand");
+      	var query = new Parse.Query("Brand");
+      	var brand= new Brand();
+
+      		// brand.set("name", $scope.brandDetails.name);
+      		// brand.set("imageUrl", $scope.brandDetails.imageUrl);
+      		// brand.set("companyUrl",$scope.brandDetails.companyUrl);
+      		// brand.set("manufacturer",$scope.brandDetails.manufacturer);
+      		// brand.save();
+
+      	var id = $routeParams.id;
+      	console.log("The passed Id is"+ id);
+      	query.equalTo("objectId", brand.id);
+      	query.get(id).then(function(response){
+      		response.set("name", $scope.brandDetails.name);			//Set the object attributes
+      		response.set("imageUrl", $scope.brandDetails.imageUrl);		// don't forget to save
+      		response.set("companyUrl",$scope.brandDetails.companyUrl);
+      		response.set("manufacturer",$scope.brandDetails.manufacturer);
+      		response.save();
+      		console.log("the updated object is" + response);
+      		window.location.href="#/brands"
+
+      	});
+      }
+
+   	//------------------------Delete a brand----------------------
+   	      $scope.deleteBrand = function(id){
+      	console.log("got into the Delete module");
+      	var Brand = Parse.Object.extend("Brand");
+      	var query = new Parse.Query("Brand");
+      	//var brand= new Brand();
+
+      	var id = $routeParams.id;
+      	console.log("The passed Id is"+ id);
+      	query.equalTo("objectId", id);
+      	query.get(id).then(function(response){		//this works, wait for the callback to finish to refresh the page
+      		response.destroy({						// this does not need a value to be passed, Don't do it
+      			success: function(response){
+      				window.location.href="#/brands";
+      				console.log("destroyed");
+      			},
+      			error : function(err){
+      				console.error(err);
+      			}
+      		});
+      	});
+      }
       //---------------- Picture Upload ------------------------------
 
       $scope.addPicture = function(){
