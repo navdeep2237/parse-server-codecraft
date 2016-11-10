@@ -1,4 +1,4 @@
-<a href="" ng-click="logout()" class="logout">logout</a>
+<li> <a href="#/logout" ng-click="logout()" class="logout">logout</a></li>
 <div ng-init="authUser()" class="container-fluid main-content">
  <div ng-init="authUser()">
   <div class="row">
@@ -8,6 +8,12 @@
       <a href="#" class="thumbnail">
         <img id="pics" src="{{picture.get('image').url()}}" />
       </a>
+      <div class="caption">
+      <h4> {{picture.get('name')}}</h4>
+      </div>
+      <p> {{picture.get('description')}}</p>
+      <a class="btn btn-primary"   ng-click="deletePicture(picture.id)">Delete</a> 
+      </div>
     </div>
     </div>
   </div>

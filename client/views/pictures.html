@@ -1,14 +1,26 @@
-<a href="" ng-click="logout()" class="logout">logout</a>
+
+<li> <a href="#/logout" ng-click="logout()" class="logout">logout</a></li>
 <div class="container-fluid main-content">
-<a href="#/brands"> Back To Brands</a>
+
+<a href="#/brands" type="button"> Back To Brands</a>
+<a type="button" class="btn btn-primary btn-lg active middle-btn" id="myBtn" data-toggle="modal" data-target="#myModal">Add a Watermark</a>
+
 <div ng-init="authUser()">
+
 	<div class="row">
 		<div ng-init="showPictures()">
 		<div ng-repeat="picture in pictures">
 	  <div class="col-xs-6 col-md-3">
-	    <a href="#" class="thumbnail">
+	    <a href="" class="thumbnail">
 	      <img id="pics" src="{{picture.get('image').url()}}" />
+	      
 	    </a>
+	    
+	    <div class="caption">
+	    <h4> {{picture.get('name')}}</h4>
+	    
+	    <a class="btn btn-primary"   ng-click="deletePicture(picture.id)">Delete</a> 
+	    </div>
 	  </div>
 	  </div>
 	</div>
@@ -16,9 +28,55 @@
 </div>
 
 	
- 	<div ng-init="addPicture1()">
+ 
+
+ 	
+ 	<!-- Start of modal content -->
+ 	  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Uploads</h4>
+        </div>
+        <div class="modal-body">
+           <div class="panel-body">
+    <div>
+ 		<h3> Add A Watermark </h3>
+ 		<form enctype="multipart/form-data">
+		  
+		  <div class="col-md-8">
+		  <label>Watermark name</label>
+		  <input type="text" class="form-control" name="Watermark Name" placeholder="watermark" ng-model="pictureName.name"><br>
+		  </div>
+		  
+		  <div class="col-md-8">
+		  <label>Description</label>
+		  <input type="text" class="form-control" name="Description" placeholder="Desc." ng-model="pictureName.description">
+		  </div>
+		  <div class="col-md-8 pad">
+		  <label>Choose File</label>
 	 	<img id="imageEl" src="" alt="" />
+	 	
 	 	<input type="file" id="inputEl" ng-model="picture" />
-	 	<button id="buttonEl" ng-click="addPicture1()">Upload</button>
+	 	</div>
+	 	<div class="col-md-8 pad">
+	 	<button class="btn btn-primary" id="buttonEl" ng-click="addPicture2()">Submit</button>
+	 	</div>
+	 	</form>
  	</div>
+  </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          
+        </div>
+      </div>
+    </div>
+  </div> 
+ 	
+
+
 </div>

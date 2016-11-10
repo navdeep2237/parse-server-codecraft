@@ -15,12 +15,81 @@
 </head>
 
 <body>
-<div class="container-fluid" id="first-page">
+
+<div  class="container-fluid" id="first-page" >
 	<img src="assets/images/logo.png" height="200px"/>
-	<h1>PartyOn</h1>
-  <a href="#/login" class="btn btn-primary btn-lg active middle-btn" role="button">Login</a>
-  <a href="#/register" class="btn btn-primary btn-lg active middle-btn" role="button">Sign Up</a>
+	<h1 id="main-heading">PartyOn</h1>
+  <div id="login">
+ <form>
+ 
+      <div class="pad">
+    <input type = "text" class="form-control" ng-model="user2.username" name="username" id="username" placeholder ="username">
+    </div >
+    <div class="pad">
+    <input type = "password" class="form-control" ng-model="user2.password" name="password" id="password" placeholder ="password">
+    
+    
+      </div>
+ </form>
+ </div>
+ <div class="pad">
+  <a href="#/login"  class="btn btn-primary btn-lg active middle-btn" ng-click="logUser()" role="button">Login</a>
+  <!-- Trigger the modal with a button -->
+  <a type="button" class="btn btn-primary btn-lg active middle-btn" id="myBtn" data-toggle="modal" data-target="#myModal">Sign Up</a>
   </div>
+  <!-- Trigger the modal with a button -->
+</div>
+ 
+  
+  
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Register</h4>
+        </div>
+        <div class="modal-body">
+           <div class="panel-body">
+      <div class="row">
+      <form ng-submit="addUser()">
+            <div class="col-md-8">
+            
+              <label> Username </label>
+              <input type = "text" class="form-control" ng-model="user1.username" placeholder ="Username"> <!-- ng-model binds the form data -->
+            </div>
+            <div class="col-md-8">
+              <label> Password </label>
+              <input type = "password" class="form-control" ng-model="user1.password" placeholder ="Password">
+            </div>
+            <div class="col-md-8">
+              <label> Email Address </label>
+              <input type = "email" class="form-control" ng-model="user1.email" placeholder ="email">
+            </div>
+             <div class="col-md-8">
+              <label> Company Name </label>
+              <input type = "text" class="form-control" ng-model="user1.companyName" placeholder ="Company Name ">
+            </div>
+            <div class="col-md-8">
+            <button type="submit" class="btn btn-primary" >Sign Up</button>
+           
+            </div>
+        </form>
+      </div>
+  </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          
+        </div>
+      </div>
+    </div>
+  </div> 
+
 
   <script>
   $("#first-page").css("height",$(window).height());

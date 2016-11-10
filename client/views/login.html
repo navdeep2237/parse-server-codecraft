@@ -1,4 +1,4 @@
-<div class="panel panel-default"> <!-- Runs whatever function we put into ng-init
+<!-- Runs whatever function we put into ng-init
   <div class="panel-heading">
     <h3 class="panel-title">Login</h3>
   </div>
@@ -46,14 +46,16 @@
  <div id="login">
  <form>
   <h2>Sign In</h2>
-      <div class="col-md-6">
+      <div  class="col-md-6 pad">
     <input type = "text" class="form-control" ng-model="user2.username" name="username" id="username" placeholder ="username">
-    
-    <input type = "password" class="form-control" ng-model="user2.password" name="password" id="password" placeholder ="password">
-    
-    <button type="submit" ng-click="logUser()" id="login-btn" class="btn btn-default">Login</button>
       </div>
+      <div  class="col-md-6 pad">
+    <input type = "password" class="form-control" ng-model="user2.password" name="password" id="password" placeholder ="password">
+    </div>
+    <button type="submit" ng-click="logUser()" id="login-btn" class="btn btn-default">Login</button>
+      
  </form>
  </div>
+ 
 </body>
 </html>

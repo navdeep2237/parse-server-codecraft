@@ -1,15 +1,22 @@
-<a href="" ng-click="logout()" class="logout">logout</a>
+<li> <a href="#/logout" ng-click="logout()" class="logout">logout</a></li>
+
 <div ng-init="authUser()" class =" container-fluid main-content">
+<a href="#/brands" type="button"> Back To Brands</a>
 
 
   <div class="row">
     <div ng-init="showTrademarksAll()">
     <div ng-repeat="picture in trademarks">
-        <div class="col-xs-6 col-md-3">
-          <a href="#" class="thumbnail">
+        <div class="col-xs-6 col-md-3 thumbnail">
+          <a href="#" >
             <img id="pics" src="{{picture.get('image').url()}}" />
           </a>
+          <div class= "caption">{{picture.get('name')}}
+          </div>
+          <p> {{picture.get('description')}}</p>
+          <a class="btn btn-primary"   ng-click="deleteTrademark(picture.id)">Delete</a>
         </div>
+
     </div>
   </div>
   </div>

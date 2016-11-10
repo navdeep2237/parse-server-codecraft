@@ -6,16 +6,33 @@ Parse.serverURL="http://localhost:1337/parse";
 
 myApp.config(function($routeProvider){
 	$routeProvider.when('/',{
+
 		controller:'loginController',
-		templateUrl:'views/first.html'
+		templateUrl:'views/first.html',
+		// resolve: {							//trying conditions for redirect
+		// 	mess: function($location){
+		// 		if(currentUser){
+		// 			$location.path('/landing');
+		// 		}
+		// 	}
+		// }
+
+	})
+	.when('/first',{
+		controller: 'loginController',
+		templateUrl: 'views/first.html'
 	})
 	.when('/register',{
 		controller:'loginController',
 		templateUrl:'views/register.html'
 	})
+	.when('/logout',{
+		controller:'loginController',
+		templateUrl:'views/logout.html'
+	})
 	.when('/login',{
 		controller:'loginController',
-		templateUrl:'views/login.html'
+		templateUrl:'views/first.html'
 	})
 	.when('/index',{
 		controller:'loginController',
@@ -62,6 +79,14 @@ myApp.config(function($routeProvider){
 	.when('/brandEdit/:id',{
 		controller: "loginController",
 		templateUrl: 'views/editBrands.html'
+	})
+	.when('/addBrand',{
+		controller: "loginController",
+		templateUrl: 'views/addBrand.html'
+	})
+	.when('/deletePicture/:id',{
+		controller: "loginController",
+		templeteUrl:'views/thumbgallery.html'
 	})
 	.otherwise({
 		redirectTo:'/'	//redirect when user hits wrong link

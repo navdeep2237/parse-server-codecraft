@@ -1,0 +1,33 @@
+<!-- Add brand Panel -->
+  <div class="panel-heading main-content" ng-init="authUser()">
+    <h3 class="panel-title">Add Brands</h3>
+  </div>
+  <div class="panel-body main-content">
+      <div class="row">
+      <form ng-submit="addBrand()">
+            <div class="col-md-8">
+            
+              <label> Brand Name </label>
+              <input type = "text" class="form-control" ng-model="brand1.name" name="name" id="name" placeholder ="Brand name"> <!-- ng-model binds the form data -->
+            </div>
+            
+            <div class="col-md-8">
+              <label> CompanyUrl </label>
+              <input type = "text" class="form-control" ng-model="brand1.companyUrl" name="companyUrl" id="companyUrl" placeholder ="Company Url">
+            </div>
+             <div class="col-md-8">
+              <label> imageUrl </label>
+              <input type = "text" class="form-control" ng-model="brand1.imageUrl" name="imageUrl" id="imageUrl" placeholder ="Image Url">
+            </div>
+             <div class="col-md-8">
+              <label> Manufacturer </label>
+              <input type = "text" class="form-control" ng-model="brand1.manufacturer" name="manufacturer" id="manufacturer" placeholder ="manufacturer">
+            </div>
+            <div class="col-md-8">
+            <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+      </div>
+  </div>
+</div> 
+</div>

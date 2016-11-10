@@ -20,16 +20,17 @@
   </div>
                 -->
   <!-- Brand Thumnail View-->
-<a href="" ng-click="logout()" class="logout">logout</a>
+<!-- <a href="" ng-click="logout()" class="logout">logout</a>
 <div class="main-content">
 
 <div ng-init="authUser()">
+<a class="btn btn-primary" href="#/addBrand">Add A Brand</a> 
   <div class="row">
   <div ng-init="showBrands()">
       <div ng-repeat="brand in brands">
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="{{brand.attributes.imageUrl}}" alt="">
+          <img src="{{brand.attributes.imageUrl}}" class="img-rounded" alt="">
           <div class="caption">
             <h3>{{brand.attributes.name}}</h3>
             
@@ -39,9 +40,50 @@
       </div>
 </div>
 </div>
+</div> -->
+
+
+<li> <a href="#/logout" ng-click="logout()" class="logout">logout</a></li>
+<div class="panel panel-default main-content brands" ng-init="authUser()">
+<a href="#/brands">Back To Brands</a>
+<a class="btn btn-primary" href="#/addBrand">Add A Brand</a>
+
+    <div ng-init="showBrands()">
+        <div ng-repeat="brand in brands">
+            <!-- here we can do the styling for the brands-->
+             <!-- <div class="panel-heading">
+                  <h2 class="panel-title">Brand Details</h2>
+              </div> -->
+              <div class="panel-body">
+                  <div class="row">
+                      <div class="col-md-3">
+                         <img src="{{brand.attributes.imageUrl}}"> 
+                      </div>
+                      <div class="col-md-4">
+                          <h3> {{brand.attributes.name}}</h3>
+                          <ul class="list-group">
+                          <li class="list-group-item">Manufacturer:{{brand.attributes.manufacturer}}</li>
+                          <li class="list-group-item">Supplier Name: {{currentUser.get("username")}}</li>
+                          </ul>
+                          <a href="{{brand.attributes.companyUrl}}" class="btn btn-primary"> Statistics</a>
+                      </div>
+                  </div>
+              </div>
+            <!-- end of repeated brands -->
+            <a class="btn btn-primary" href="#/pictures/{{brand.id}}">View Watermarks</a> 
+        <a class="btn btn-primary" href="#/trademarks/{{brand.id}}">View Trademarks</a>
+        <div class="pull-right">
+        <a href="#/brandEdit/{{brand.id}}"> Edit</a> | <a href="#" ng-click="deleteBrand(brand.id)"> Delete</a> 
+        </div>
+
+        </div>
+    </div>    
+
 </div>
+</div>
+
   
-  <!-- Add brand Panel -->
+  <!-- Add brand Panel 
   <div class="panel-heading">
     <h3 class="panel-title">Add Brands</h3>
   </div>
@@ -51,7 +93,7 @@
             <div class="col-md-6">
             
               <label> Brand Name </label>
-              <input type = "text" class="form-control" ng-model="brand1.name" name="name" id="name" placeholder ="Brand name"> <!-- ng-model binds the form data -->
+              <input type = "text" class="form-control" ng-model="brand1.name" name="name" id="name" placeholder ="Brand name"> 
             </div>
             
             <div class="col-md-6">
@@ -72,6 +114,6 @@
       </div>
   </div>
 </div> 
-</div>
+</div> -->
 
 

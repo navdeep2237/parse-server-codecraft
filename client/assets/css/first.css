@@ -1,5 +1,5 @@
 body{
-	background-image: url("/assets/images/party_beach.jpg");
+	background-image: url("/assets/images/phone_party.jpeg");
 }
 #first-page{
 	position: absolute;;
@@ -11,4 +11,29 @@ body{
 #first-page h1{
 	text-align:center;
 
+}
+.pad{
+	padding-bottom: 20px;
+}
+#first-page input{
+	display: block;
+	width: 320px;
+	height: 40px;
+	padding: 20px;
+	font-size: 14px;
+	font-family: sans-serif;
+	color: black;
+	background: rgba(255,255,255,0.8);
+	outline: none;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 5px;
+	box-shadow: inset 0px -5px 45px rgba(100,100,100,0.2), 0px 1px 1px rgba(255,255,255,0.2);
+	margin-bottom: :20px;
+}
+#first-page img{
+	display: block;
+	margin: auto;
+}
+#first-page .middle-btn{
+	display: block;
 }

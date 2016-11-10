@@ -6,7 +6,7 @@ var mongo= require("mongodb");
 var bodyParser = require('body-parser');
 
 
-var databaseUri ="mongodb://navdeep-1:12345A@ds049436.mlab.com:49436/heroku_hmhlqb6c"//process.env.DATABASE_URI || process.env.MONGODB_URI;
+var databaseUri =process.env.DATABASE_URI || process.env.MONGODB_URI; //"mongodb://navdeep-2:123456A@ds049436.mlab.com:49436/heroku_hmhlqb6c"//
 
 if (!databaseUri) {
 	console.log('DATABASE_URI not specified, falling back to localhost.');
