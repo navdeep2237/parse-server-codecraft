@@ -3,7 +3,7 @@ var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 var mongo= require("mongodb");
 var bodyParser = require('body-parser');
-var user = require('./cloud/controllers/user');
+//var user = require('./cloud/controllers/user');
 
 
 var databaseUri = "mongodb://partyon_admin:123321@ds019756.mlab.com:19756/partyon"//process.env.DATABASE_URI || process.env.MONGODB_URI; 
