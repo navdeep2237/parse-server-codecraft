@@ -244,20 +244,13 @@ myApp.controller('loginController',['$scope','$http','$location','$routeParams',
       	query.get(id).then(function(response){
       		var name=response.get("name");
       		var name1 = response.attributes.name; 
-      		console.log("the name with get is " + name);
-      		console.log("the name with attributes is "+ name1);
-      		$scope.brandDetails= {
-      			"name":response.get("name"),			// this seems to get tid of the read-only property
+      		      		$scope.brandDetails= {
+      			"name":response.get("name"),			// this seems to get rid of the read-only property
       			"imageUrl":response.get("imageUrl"),	//It gets the value out of the parseobjectsubclass and assigns individually
       			"companyUrl":response.get("companyUrl"),
       			"manufacturer":response.get("manufacturer")
       		};
-      		//console.log("and this is before the attributes" + $scope.brandDetails2);
-      		// response.set("name", "test");
-      		//console.log("test of response",response);
-      		//$scope.brandDetails = JSON.stringify($scope.brandDetails2.attributes);
-      		//$scope.brandDetails=$scope.brandDetails2.attributes;
-      		// $scope.brandDetails.writable=true;
+      		
       		$scope.$apply();
       		console.log("brand if fetched", $scope.brandDetails);
       	});
@@ -327,7 +320,7 @@ myApp.controller('loginController',['$scope','$http','$location','$routeParams',
 	      	if(uploadedPic.files.length > 0){	//if the file is not null
       		var file = uploadedPic.files[0];	// since using file, [0] will get the first element
       		var name = file.name;		// name is automatic from file name
-      		console.log("file uploaded successfully" + name);
+      		//console.log("file uploaded successfully" + name);
       		
       		var parseFile = new Parse.File(name, file);		//new file object, 
       		parseFile.save().then(function(){
@@ -416,13 +409,12 @@ myApp.controller('loginController',['$scope','$http','$location','$routeParams',
 	      			picture.set("brand",brandName);
 	      			//changed for user(adding)
 	      			picture.set("user",user);
-                              name = name.substr(0,name.lastIndexOf('.'));    //regex for removing the file extension from the name 
+                              name = name.substr(0,name.lastIndexOf('.'));    
                               
                               picture.set("name",name);           // to save the name of the file in the database 
 	      			picture.save().then(function(){
 	      				console.log(picture.id);
-                                   // console.log(picture.name);
-	      				// adding the relation to brands
+                                    // adding the relation to brands
 	     				var pictures = brandName.relation("pictures");
 						pictures.add(picture);
 						brandName.save();
