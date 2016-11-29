@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp',['ngRoute']); //initialize app, declare dependency
 
 Parse.initialize("PartyOn");
-Parse.serverURL="http://localhost:1337/parse";
+Parse.serverURL="https://parse-webclient-test.herokuapp.com/parse";
 
 
 myApp.config(function($routeProvider){

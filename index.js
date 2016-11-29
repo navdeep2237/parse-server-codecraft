@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 // Serve the Parse API on the /parse URL prefix
 var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
-app.get("/user/signup/:id",user.signUp);
+//app.get("/user/signup/:id",user.signUp);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function (req, res) {
